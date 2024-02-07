@@ -5,7 +5,8 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { Tab } from "./tabs";
 
 function App() {
-  const [input, setInput] = useState(0);
+  const [input, setInput] = useState<number>(0);
+  const [value, setValue] = useState(" ");
 
   return (
     <div className="flex justify-center  items-center h-screen w-full  bg-blue-300">
@@ -23,9 +24,15 @@ function App() {
           <BsThreeDotsVertical />
         </div>
         <div className="h-48 bg-gray-200   rounded-b-3xl">
-          <input className="h-12  bg-gray-200  w-full text-[30px] text-end flex justify-end p-12 " />
+          <input
+            // onChange={(e) => {
+            //   let a = e.target.value;
+            //   setValue(a);
+            // }}
+            className="h-12  bg-gray-200  w-full text-[30px] text-end flex justify-end p-12 "
+          />
         </div>
-        <Tab />
+        <Tab value={value} setValue={(val) => setValue(val)} />
       </div>
     </div>
   );
