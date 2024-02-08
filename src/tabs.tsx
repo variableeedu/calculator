@@ -5,24 +5,36 @@ import { RiDivideLine } from "react-icons/ri";
 export function Tab({
   value,
   setValue,
+  setOutput,
 }: {
   value: string;
   setValue: (val: string) => void;
+  setOutput: (val: string) => void;
 }) {
   return (
     <>
       <div className=" h-[460px] p-2 ">
         <div className="h-12 pl-4 flex space-x-3 ">
           <LiaSquareRootAltSolid
+            onClick={() => {
+              setValue(value + "√");
+            }}
             size={30}
             className="h-12 p-2 w-12 rounded-full  bg-blue-50"
           />
-          <button className="h-12z w-12 rounded-full  bg-blue-50"></button>
+          <button
+            onClick={() => {
+              setValue(value + "π");
+            }}
+            className="h-12 w-12 rounded-full text-[25px]  bg-blue-50"
+          >
+            π
+          </button>
           <button
             onClick={() => {
               setValue(value + "^");
             }}
-            className="h-12z w-12 rounded-full text-[28px] text-center bg-blue-50"
+            className="h-12 w-12 rounded-full text-[28px] text-center bg-blue-50"
           >
             ^
           </button>
@@ -30,13 +42,13 @@ export function Tab({
             onClick={() => {
               setValue(value + "!");
             }}
-            className="h-12z w-12 rounded-full text-[28px] text-center bg-blue-50"
+            className="h-12 w-12 rounded-full text-[28px] text-center bg-blue-50"
           >
             !
           </button>
           <button
             onClick={() => {
-              setValue(value + "^");
+              setValue(value + "∨");
             }}
             className="h-8 w-8 rounded-full text-[20px] text-center rotate-180 bg-blue-50"
           >
@@ -47,7 +59,8 @@ export function Tab({
           <div className="   flex space-x-2">
             <button
               onClick={() => {
-                setValue(value + "AC");
+                setValue("");
+                setOutput(" ");
               }}
               className="h-[74px] rounded-full  text-[30px]   text-center    w-[74px] bg-blue-200"
             >
@@ -71,7 +84,7 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + "");
+                setValue(value + " /");
               }}
               className="h-[74px] p-5 rounded-full  w-[74px] bg-blue-200"
             >
@@ -83,7 +96,7 @@ export function Tab({
               onClick={() => {
                 setValue(value + "7");
               }}
-              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               7
             </button>
@@ -91,7 +104,7 @@ export function Tab({
               onClick={() => {
                 setValue(value + "8");
               }}
-              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               8
             </button>
@@ -99,33 +112,33 @@ export function Tab({
               onClick={() => {
                 setValue(value + "9");
               }}
-              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               9
             </button>
             <button
               onClick={() => {
-                setValue(value + "");
+                setValue(value + "*");
               }}
               className="h-[74px]  p-5  rounded-full  w-[74px] bg-blue-200"
             >
               <RxCross2 size={33} />
             </button>
           </div>
-          <div
-            onClick={() => {
-              setValue(value + "4");
-            }}
-            className="   flex space-x-2"
-          >
-            <button className="h-[74px] rounded-full text-[30px] pt-3  text-center     w-[74px] bg-white">
+          <div className="   flex space-x-2">
+            <button
+              onClick={() => {
+                setValue(value + "4");
+              }}
+              className="h-[74px] rounded-full text-[30px] pt-3  text-center     w-[74px] bg-white hover:bg-gray-100"
+            >
               4
             </button>
             <button
               onClick={() => {
                 setValue(value + "5");
               }}
-              className="h-[74px] rounded-full   text-[30px] pt-3  text-center   w-[74px] bg-white"
+              className="h-[74px] rounded-full   text-[30px] pt-3  text-center   w-[74px] bg-white hover:bg-gray-100"
             >
               5
             </button>
@@ -133,7 +146,7 @@ export function Tab({
               onClick={() => {
                 setValue(value + "6");
               }}
-              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               6
             </button>
@@ -151,7 +164,7 @@ export function Tab({
               onClick={() => {
                 setValue(value + "1");
               }}
-              className="h-[74px] rounded-full text-[30px] pt-3  text-center     w-[74px] bg-white"
+              className="h-[74px] rounded-full text-[30px] pt-3  text-center     w-[74px] bg-white hover:bg-gray-100"
             >
               1
             </button>
@@ -159,7 +172,7 @@ export function Tab({
               onClick={() => {
                 setValue(value + "2");
               }}
-              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               2
             </button>
@@ -167,7 +180,7 @@ export function Tab({
               onClick={() => {
                 setValue(value + "3");
               }}
-              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               3
             </button>
@@ -185,7 +198,7 @@ export function Tab({
               onClick={() => {
                 setValue(value + "0");
               }}
-              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[30px] pt-3  text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               0
             </button>
@@ -193,21 +206,21 @@ export function Tab({
               onClick={() => {
                 setValue(value + ".");
               }}
-              className="h-[74px] rounded-full  text-[40px]   text-center    w-[74px] bg-white"
+              className="h-[74px] rounded-full  text-[40px]   text-center    w-[74px] bg-white hover:bg-gray-100"
             >
               .
             </button>
             <button
               onClick={() => {
-                setValue(value + "");
+                setValue(value.slice(0, -1));
               }}
-              className="h-[74px] rounded-full p-5 text-center   w-[74px] bg-white"
+              className="h-[74px] rounded-full p-5 text-center   w-[74px] bg-white hover:bg-gray-100"
             >
               <FaDeleteLeft size={30} />
             </button>
             <button
               onClick={() => {
-                setValue(value + "=");
+                setOutput(eval(value));
               }}
               className="h-[74px] rounded-full  text-[40px] pt-1  text-center    w-[74px] bg-blue-200"
             >
