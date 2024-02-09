@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaSignal } from "react-icons/fa6";
 import { IoBatteryHalf } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -7,6 +7,14 @@ import { Tab } from "./tabs";
 function App() {
   const [value, setValue] = useState(" ");
   const [output, setoutput] = useState(" ");
+
+  useEffect(() => {
+    try {
+      let a = value.replaceAll("x", "*");
+      a = a.replaceAll("÷", "/");
+      let last = setoutput(eval(a));
+    } catch (error) {}
+  }, [value]);
 
   return (
     <div className="flex justify-center  items-center  w-full  bg-blue-300">
