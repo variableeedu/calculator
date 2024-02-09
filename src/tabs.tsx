@@ -84,7 +84,7 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + " /");
+                setValue(value + " ÷");
               }}
               className="h-[74px] p-5 rounded-full  w-[74px] bg-blue-200"
             >
@@ -118,7 +118,7 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + "*");
+                setValue(value + "x");
               }}
               className="h-[74px]  p-5  rounded-full  w-[74px] bg-blue-200"
             >
@@ -186,7 +186,9 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + "+");
+                if (value !== "") {
+                  setValue(value + "+");
+                }
               }}
               className="h-[74px] rounded-full  text-[40px] pt-1  text-center    w-[74px] bg-blue-200"
             >
@@ -220,7 +222,9 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setOutput(eval(value));
+                let a = value.replaceAll("x", "*");
+                a = a.replaceAll("÷", "/");
+                setOutput(eval(a));
               }}
               className="h-[74px] rounded-full  text-[40px] pt-1  text-center    w-[74px] bg-blue-200"
             >
