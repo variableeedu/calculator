@@ -3,16 +3,30 @@ import { FaSignal } from "react-icons/fa6";
 import { IoBatteryHalf } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Tab } from "./tabs";
+import { eval1 } from "./utils";
 
 function App() {
   const [value, setValue] = useState(" ");
-  const [output, setoutput] = useState(" ");
+  const [output, setOutput] = useState(" ");
+  const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
+    // if (
+    //   value[value.length - 1] == "x" ||
+    //   value[value.length - 1] == "+" ||
+    //   value[value.length - 1] == "-" ||
+    //   value[value.length - 1] == "%" ||
+    //   value[value.length - 1] == "÷" ||
+    //   value[value.length - 1] == "()"
+    // ) {
+    //   setDisabled(true);
+    // } else {
+    //   setDisabled(false);
+    // }
     try {
-      let a = value.replaceAll("x", "*");
+      let a: string = value.replaceAll("x", "*");
       a = a.replaceAll("÷", "/");
-      let last = setoutput(eval(a));
+      setOutput(eval1(a));
     } catch (error) {}
   }, [value]);
 
@@ -42,8 +56,10 @@ function App() {
         </div>
         <Tab
           value={value}
+          // disabled={disabled}
+          output={output}
           setValue={(val) => setValue(val)}
-          setOutput={(val) => setoutput(val)}
+          setOutput={(val) => setOutput(val)}
         />
       </div>
     </div>

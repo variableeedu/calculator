@@ -2,12 +2,17 @@ import { RxCross2 } from "react-icons/rx";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { LiaSquareRootAltSolid } from "react-icons/lia";
 import { RiDivideLine } from "react-icons/ri";
+import { addSymbol } from "./test";
 export function Tab({
   value,
   setValue,
   setOutput,
-}: {
+  output,
+}: // disabled,
+{
   value: string;
+  // disabled: boolean;
+  output: string;
   setValue: (val: string) => void;
   setOutput: (val: string) => void;
 }) {
@@ -69,7 +74,10 @@ export function Tab({
 
             <button
               onClick={() => {
-                setValue(value + "( )");
+                if (value !== "") {
+                  let i = addSymbol("()", value);
+                  setValue(i);
+                }
               }}
               className="h-[74px] rounded-full  text-[30px]   text-center    w-[74px] bg-blue-200"
             >
@@ -77,7 +85,10 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + "%");
+                if (value !== "") {
+                  let i = addSymbol("%", value);
+                  setValue(i);
+                }
               }}
               className="h-[74px] rounded-full   text-[30px]  text-center   w-[74px] bg-blue-200"
             >
@@ -85,7 +96,10 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + " ÷");
+                if (value !== "") {
+                  let i = addSymbol("÷", value);
+                  setValue(i);
+                }
               }}
               className="h-[74px] p-5 rounded-full  w-[74px] bg-blue-200"
             >
@@ -119,7 +133,10 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + "x");
+                if (value !== "") {
+                  let i = addSymbol("x", value);
+                  setValue(i);
+                }
               }}
               className="h-[74px]  p-5  rounded-full  w-[74px] bg-blue-200"
             >
@@ -153,7 +170,10 @@ export function Tab({
             </button>
             <button
               onClick={() => {
-                setValue(value + "-");
+                if (value !== "") {
+                  let i = addSymbol("-", value);
+                  setValue(i);
+                }
               }}
               className="h-[74px] rounded-full text-center text-[50px]  w-[74px] bg-blue-200"
             >
@@ -188,7 +208,8 @@ export function Tab({
             <button
               onClick={() => {
                 if (value !== "") {
-                  setValue(value + "+");
+                  let i = addSymbol("+", value);
+                  setValue(i);
                 }
               }}
               className="h-[74px] rounded-full  text-[40px] pt-1  text-center    w-[74px] bg-blue-200"
@@ -226,11 +247,14 @@ export function Tab({
                 let a = value.replaceAll("x", "*");
                 a = a.replaceAll("÷", "/");
                 setOutput(eval(a));
+                setValue(output);
+                setOutput("");
               }}
               className="h-[74px] rounded-full  text-[40px] pt-1  text-center    w-[74px] bg-blue-200"
             >
               =
             </button>
+            ;
           </div>
         </div>
       </div>
