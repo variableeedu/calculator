@@ -8,10 +8,8 @@ export function Tab({
   setValue,
   setOutput,
   output,
-}: // disabled,
-{
+}: {
   value: string;
-  // disabled: boolean;
   output: string;
   setValue: (val: string) => void;
   setOutput: (val: string) => void;

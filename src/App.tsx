@@ -11,18 +11,6 @@ function App() {
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
-    // if (
-    //   value[value.length - 1] == "x" ||
-    //   value[value.length - 1] == "+" ||
-    //   value[value.length - 1] == "-" ||
-    //   value[value.length - 1] == "%" ||
-    //   value[value.length - 1] == "÷" ||
-    //   value[value.length - 1] == "()"
-    // ) {
-    //   setDisabled(true);
-    // } else {
-    //   setDisabled(false);
-    // }
     try {
       let a: string = value.replaceAll("x", "*");
       a = a.replaceAll("÷", "/");
@@ -56,7 +44,6 @@ function App() {
         </div>
         <Tab
           value={value}
-          // disabled={disabled}
           output={output}
           setValue={(val) => setValue(val)}
           setOutput={(val) => setOutput(val)}
