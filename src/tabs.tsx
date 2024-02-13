@@ -3,6 +3,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { LiaSquareRootAltSolid } from "react-icons/lia";
 import { RiDivideLine } from "react-icons/ri";
 import { addSymbol } from "./test";
+import { Button } from "./button";
 export function Tab({
   value,
   setValue,
@@ -60,27 +61,25 @@ export function Tab({
         </div>
         <div className="pt-1 space-y-1 ">
           <div className="   flex space-x-2">
-            <button
-              onClick={() => {
+            <Button
+              title="AC"
+              onclick={() => {
                 setValue("");
                 setOutput(" ");
               }}
-              className="h-[74px] rounded-full  text-[30px]   text-center    w-[74px] bg-blue-200"
-            >
-              AC
-            </button>
+            />
 
-            <button
-              onClick={() => {
+            <Button
+              title="()"
+              onclick={() => {
+                setValue("");
                 if (value !== "") {
                   let i = addSymbol("()", value);
                   setValue(i);
                 }
               }}
-              className="h-[74px] rounded-full  text-[30px]   text-center    w-[74px] bg-blue-200"
-            >
-              ( )
-            </button>
+            />
+
             <button
               onClick={() => {
                 if (value !== "") {
